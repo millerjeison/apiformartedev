@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\StoreAsignaturaRequest;
+use App\Http\Requests\UpdateAsignaturaRequest;
+use App\Models\Asignatura;
+use App\Models\Grado;
+
+class AsignaturaController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreAsignaturaRequest $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($grado)
+    {
+        $grado = Grado::where('value', $grado)->first();
+        $grado_id = $grado->id;
+        $asignaturas = Asignatura::where('grado_id', $grado_id)->get();
+        return response()->json(['response' => $asignaturas], 200);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Asignatura $asignatura)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateAsignaturaRequest $request, Asignatura $asignatura)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Asignatura $asignatura)
+    {
+        //
+    }
+}
