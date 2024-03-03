@@ -17,7 +17,7 @@ class StudentController extends Controller
     public function createOrUpdateStudent(Request $request)
     {
         $idStudent = $request->id_student;
-        $score = $request->score; // Score por defecto es 0 si no se proporciona
+        $score = $request->input('score', 0); 
 
         $student = Student::updateOrCreate(
             ['id_student' => $idStudent],
